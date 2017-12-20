@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "typescript": "^2.6.0"
+  },
+  "dependencies": {
+    "@types/github": "^7.1.0",
+    "@types/lodash": "^4.14.91",
+    "@types/node": "^8.5.2",
+    "@types/node-fetch": "^1.6.7",
+    "github": "^13.0.1",
+    "lodash": "^4.17.4",
+    "node-fetch": "^1.7.3",
+    "prettier": "^1.9.2",
+    "ts-node": "^4.0.2"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": false,
+    "singleQuote": false
+  }
+}
