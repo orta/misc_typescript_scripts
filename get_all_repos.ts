@@ -37,16 +37,18 @@ const allRepos: any[] = []
 const iterate = (cursor?: string) => {
   const GQL = query(cursor)
   console.log("Calling:")
-  console.log(GQL)
   runQuery(GQL).then(async r => {
     const response = await r.json()
     const prs = response.data.user.pullRequests
-    const lastPR = prs.nodes[prs.nodes.length - 1]
-    const date = new Date(lastPR.createdAt)
+    let date = undefined
+    const lastPR = prs.nodes[prs.nodes.length -1]
+    if (lastPR) {
+      date = new Date(lastPR.createdAt)
+    }
     const repos = prs.nodes.map((n: any) => n.repository.nameWithOwner)
     allRepos.push(repos)
     
-    if (date.getFullYear() === 2017) {
+    if (date && date.getFullYear() === 2017) {
       const cursor = prs.pageInfo.startCursor
       iterate(cursor)
     } else {
